@@ -8,9 +8,9 @@ The goal was to examine the behavior, volatility, and data quality of memecoins.
 
 ## Dataset Overview
 
-**Source:** Data was collected through live scraping of CoinMarketCap (memecoin category) and via a public API endpoint for BTC, ETH, and SOL historical data.  
-**Structure:** Merged dataset with coin name, price, market cap, 24h % change, and verification status.  
-**Size:** Small cleaned dataset available in `data/memecoins_clean.csv` (limited version for demonstration)
+**Source:** data was collected through live scraping of CoinMarketCap (memecoin category) and via a public API endpoint for BTC, ETH, and SOL historical data.  
+**Structure:** merged dataset with coin name, price, market cap, 24h % change, and verification status.  
+**Size:** small cleaned dataset available in `data/memecoins_clean.csv`
 
 ## Key Challenges
 
@@ -31,5 +31,5 @@ The goal was to examine the behavior, volatility, and data quality of memecoins.
 
 - `notebook_web_scraping.ipynb`: scraping, cleaning, and analysis notebook  
 - `data/`: cleaned CSV file with scraped data  
-- `web_scraping_project_karina_presentation.pdf`: presentation summary of the project  
+- `web_scraping_project_presentation.pdf`: presentation summary of the project  
 - `requirements.txt`: list of libraries used
