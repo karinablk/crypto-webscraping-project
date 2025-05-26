@@ -8,28 +8,47 @@ The goal was to examine the behavior, volatility, and data quality of memecoins.
 
 ## Dataset Overview
 
-**Source:** data was collected through live scraping of CoinMarketCap (memecoin category) and via a public API endpoint for BTC, ETH, and SOL historical data.  
-**Structure:** merged dataset with coin name, price, market cap, 24h % change, and verification status.  
-**Size:** small cleaned dataset available in `data/memecoins_clean.csv`
+This project is based on two custom-built datasets collected from [CoinMarketCap](https://coinmarketcap.com):
+
+- **Memecoins dataset**  
+  • 1,552 rows  
+  • 15 variables (e.g. price, market cap, supply, popularity)  
+  • Scraped using BeautifulSoup & Selenium  
+  • Mainly reflects current values at the time of scraping
+
+- **Top cryptocurrencies dataset**  
+  • 3,621 rows  
+  • 5 variables (e.g. date, price, market cap)  
+  • Fetched via public API  
+  • Timeframe: 1 year of historical daily data
+
+> **Note:** Only the cleaned `memecoins_clean.csv` file is included in this repository (`/data/`). The rest of the data was processed directly during scraping/API calls and not saved separately.
 
 ## Key Challenges
 
-- Dynamic HTML structure on CoinMarketCap (inconsistent element IDs and tags)
-- Missing or incomplete data (e.g. N/A values, missing volume or market cap)
-- Combining scraped data with API results from different structures and formats
+- Dynamic HTML structure of CoinMarketCap (frequent changes in element IDs/classes)  
+- Missing or inconsistent values (e.g. N/A market caps, unverified tokens)  
+- Merging data from heterogeneous sources (live web + API)  
+- Filtering and cleaning data before analysis
 
 ## Workflow Summary
 
-- Web scraping using Selenium and BeautifulSoup
-- API data retrieval and merging
-- Data cleaning and formatting
-- Exploratory analysis of volatility, correlation, and structure
-- Comparison of memecoins vs. top cryptocurrencies
-- Visualization and interpretation of results
+- Web scraping using Selenium and BeautifulSoup  
+- API data collection for BTC, ETH, SOL  
+- Data cleaning and merging  
+- Exploratory data analysis of volatility, correlation, and outliers  
+- Comparison between memecoins and top cryptocurrencies  
+- Visualization of key trends and observations
 
 ## Repository Structure
 
-- `notebook_web_scraping.ipynb`: scraping, cleaning, and analysis notebook  
-- `data/`: cleaned CSV file with scraped data  
-- `web_scraping_project_presentation.pdf`: presentation summary of the project  
-- `requirements.txt`: list of libraries used
+- `notebook_web_scraping.ipynb`: scraping, cleaning and analysis notebook  
+- `data/`: cleaned dataset `memecoins_clean.csv`  
+- `web_scraping_project_presentation.pdf`: summary slides  
+- `requirements.txt`: list of required libraries
+
+## Conclusions
+
+The analysis confirmed that memecoins are highly volatile and often lack consistent financial data, especially compared to established cryptocurrencies. Verified tokens tend to show more stability, while many unverified coins exhibit erratic price and volume behavior.
+
+Although scraping provided full control over data selection, using a structured API would be more reliable for production environments, given how dynamic and unstable the structure of CoinMarketCap’s website can be. However, this project was intended as a demonstration of web scraping techniques and handling real-world data imperfections.
